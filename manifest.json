@@ -2,33 +2,29 @@
     "format_version": 2,
     "header": {
         "name": "Change Nametag",
-        "description": "With this Addon you can change Nametags!\nYou just need to give him/her a tag:\n/tag @p add \"nametag:My new Nametag\"",
-        "uuid": "93e6e2fd-0a22-aa00-cf1b-3049898d3fca",
-        "version": [1, 0, 5],
+        "description": "With this Addon you can change the Nametag from any Entity!\nYou just need to run §l/nametag <set/reset> <player> [nametag]",
+        "uuid": "ea4c4da0-8049-4652-8a36-e9aa36ff3542",
+        "version": [1, 1, 0],
         "min_engine_version": [1, 17, 0]
     },
     "modules": [
         {
             "type": "data",
-            "uuid": "8ce51140-ea79-41ef-48a2-51e66d4239b3",
+            "uuid": "45a60da8-76f0-4a1f-8b2d-b65a47f423a5",
             "version": [1, 0, 0]
         },
         {
             "type": "script",
             "language": "javascript",
-            "uuid": "bc500730-7d6e-244b-7dc9-4dc3460f67e4",
+            "uuid": "54105254-ed50-4d4a-94da-9b3272479f26",
             "version": [1, 0, 0],
-            "entry": "scripts/index.js"
+            "entry": "scripts/xyz/hajsori/change_nametag/index.js"
         }
     ],
     "dependencies": [
         {
             "module_name": "@minecraft/server",
-            "version": "1.3.0"
-        },
-        {
-            "module_name": "@minecraft/server-ui",
-            "version": "1.1.0"
+            "version": "2.1.0"
         }
     ]
 }

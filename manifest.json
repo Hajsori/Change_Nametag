@@ -4,8 +4,8 @@
         "name": "Change Nametag",
         "description": "With this Addon you can change the Nametag from any Entity!\nYou just need to run §l/nametag <set/reset> <player> [nametag]",
         "uuid": "ea4c4da0-8049-4652-8a36-e9aa36ff3542",
-        "version": [1, 1, 1],
-        "min_engine_version": [1, 17, 0]
+        "version": [1, 1, 2],
+        "min_engine_version": [1, 21, 100]
     },
     "modules": [
         {
@@ -18,7 +18,7 @@
             "language": "javascript",
             "uuid": "54105254-ed50-4d4a-94da-9b3272479f26",
             "version": [1, 0, 0],
-            "entry": "scripts/xyz/hajsori/change_nametag/index.js"
+            "entry": "scripts/xyz/hajsori/change_nametags/index.js"
         }
     ],
     "dependencies": [

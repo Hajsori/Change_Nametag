@@ -18,10 +18,12 @@ jobs:
           python-version: "3.13"
       - name: "Run Parser"
         id: "parse"
-        run: "python scripts/manifest_parser.py"
+        run: "python .github/workflows/scripts/manifest_parser.py"
+
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r ${{ steps.parse.outputs.mc_version }} .
+        
       - uses: actions/upload-artifact@v4
         with:
           path: .

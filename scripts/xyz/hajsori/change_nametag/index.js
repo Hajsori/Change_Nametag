@@ -34,7 +34,7 @@ Minecraft.system.beforeEvents.startup.subscribe((event) => {
             Minecraft.system.run(() => {
                 if (parameter === "set") {
                     for (const entity of entities) {
-                        entity.nameTag = nametag
+                        entity.nameTag = nametag.replace("\\n", "\n")
                     }
 
                     return {

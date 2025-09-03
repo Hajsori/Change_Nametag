@@ -4,7 +4,7 @@
         "name": "Change Nametag",
         "description": "With this Addon you can change the Nametag from any Entity!\nYou just need to run §l/nametag <set/reset> <player> [nametag]",
         "uuid": "ea4c4da0-8049-4652-8a36-e9aa36ff3542",
-        "version": [1, 1, 0],
+        "version": [1, 1, 1],
         "min_engine_version": [1, 17, 0]
     },
     "modules": [

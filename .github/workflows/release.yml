@@ -1,0 +1,34 @@
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  
+      
+  release:
+    name: "Release"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: "Setup Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: "Run Parser"
+        id: "parse"
+        run: python $PWD"/.github/workflows/scripts/parse_manifest.py"
+
+      - name: "Package"
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r Change_Nametag_${{ github.ref_name }}_MC-${{ steps.parse.outputs.mc_version }}.mcpack .
+        
+      - name: Upload Release Assets
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Change_Nametag_${{ github.ref_name }}_MC-${{ steps.parse.outputs.mc_version }}.mcpack
+    
+      

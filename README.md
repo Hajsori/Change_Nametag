@@ -11,3 +11,5 @@ Examples:
 - `/nametag set @p "my new nametag"`
 - `/nametag set @a[tag=moderator] "§8[§9Moderator§8] @s"`
 - `/nametag set @n[type=cat] "meow :3"`
+
+![Banner](https://github.com/Hajsori/Change_Nametag/blob/main/Banner.png?raw=true)

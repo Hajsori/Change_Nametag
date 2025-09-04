@@ -29,7 +29,6 @@ jobs:
           args: zip -qq -r Change_Nametag_${{ github.ref_name }}.mcpack .
         
       - name: Upload Release Assets
-        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: softprops/action-gh-release@v1
         with:
           files: Change_Nametag_${{ github.ref_name }}.mcpack

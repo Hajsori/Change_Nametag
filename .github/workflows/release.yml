@@ -26,11 +26,11 @@ jobs:
       - name: "Package"
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r Change_Nametag_${{ github.ref_name }}.mcpack .
+          args: zip -qq -r Change_Nametags-${{ github.ref_name }}.mcpack Change_Nametags
         
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
         with:
-          files: Change_Nametag_${{ github.ref_name }}.mcpack
+          files: Change_Nametag-${{ github.ref_name }}.mcpack
     
       

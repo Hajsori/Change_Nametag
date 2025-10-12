@@ -1,6 +1,6 @@
 import json
 
-with open("manifest.json") as f:
+with open("/Change_Nametags/manifest.json") as f:
     manifest = json.load(f)
 
 version = "."

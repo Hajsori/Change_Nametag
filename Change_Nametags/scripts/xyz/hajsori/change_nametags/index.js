@@ -52,8 +52,8 @@ Minecraft.system.beforeEvents.startup.subscribe((event) => {
                     }
                 }
             })
-
-            console.info("[Change Nametag] Loaded Addon")
         }
     )
+
+    console.info("[Change Nametag] Loaded Addon")
 })

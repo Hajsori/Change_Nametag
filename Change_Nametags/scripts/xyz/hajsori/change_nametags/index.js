@@ -1,13 +1,14 @@
-import * as Minecraft from "@minecraft/server"
+import * as Minecraft from "@minecraft/server";
 
 
 Minecraft.system.beforeEvents.startup.subscribe((event) => {
-    event.customCommandRegistry.registerEnum("nametag:parameters", ["set", "reset"])
+    event.customCommandRegistry.registerEnum("nametag:parameters", ["set", "get", "reset"]);
+
     event.customCommandRegistry.registerCommand(
         {
             name: "nametag:nametag",
             description: "Change the Nametag from a Player",
-            permissionLevel: Minecraft.CommandPermissionLevel.Admin,
+            permissionLevel: Minecraft.CommandPermissionLevel.GameDirectors,
             cheatsRequired: false,
             mandatoryParameters: [
                 {
@@ -31,27 +32,34 @@ Minecraft.system.beforeEvents.startup.subscribe((event) => {
          * @param {Minecraft.Entity[]} entities 
          */
         (origin, parameter, entities, nametag = "") => {
-            Minecraft.system.run(() => {
-                if (parameter === "set") {
+            if (parameter === "set") {
+                Minecraft.system.run(() => {
                     for (const entity of entities) {
-                        entity.nameTag = nametag.replaceAll("\\n", "\n").replaceAll("@s", entity.name ?? entity.typeId)
+                        entity.nameTag = nametag.replaceAll("\\n", "\n").replaceAll("@s", entity.name ?? entity.typeId);
                     }
+                });
 
-                    return {
-                        message: `Setted nametag from §l${entities.map((entity) => entity.nameTag).join(", ")} §rto §l${nametag}`,
-                        status: Minecraft.CustomCommandStatus.Success
-                    }
-                } else if (parameter === "reset") {
-                    for (const entity of entities) {
-                        entity.nameTag = ""
-                    }
-
-                    return {
-                        message: `Resetted nametag from §l${entities.map((entity) => entity.nameTag).join(", ")}`,
-                        status: Minecraft.CustomCommandStatus.Success
-                    }
+                return {
+                    message: `Setted nametag from §l${entities.map((entity) => entity.name ?? entity.nameTag).join(", ")} §rto §l${nametag}`,
+                    status: Minecraft.CustomCommandStatus.Success
                 }
-            })
+            } else if (parameter === "get") {
+                return {
+                    message: `Nametags: §l${entities.filter((entity) => entity.nameTag).map((entity) => entity.nameTag).join(", ")}`,
+                    status: Minecraft.CustomCommandStatus.Success
+                }
+            } else if (parameter === "reset") {
+                Minecraft.system.run(() => {
+                    for (const entity of entities) {
+                        entity.nameTag = entity.name ?? "";
+                    }
+                });
+
+                return {
+                    message: `Resetted nametag from §l${entities.map((entity) => entity.nameTag).join(", ")}`,
+                    status: Minecraft.CustomCommandStatus.Success
+                }
+            }
         }
     )
 

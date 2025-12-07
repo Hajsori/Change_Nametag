@@ -12,4 +12,7 @@ Examples:
 - `/nametag set @a[tag=moderator] "§8[§9Moderator§8] @s"`
 - `/nametag set @n[type=cat] "meow :3"`
 
+
+If you also want to change the name in the chat check [Better Chat Messages](https://github.com/Hajsori/Better_Chat_Messages) out!
+
 ![Banner](https://github.com/Hajsori/Change_Nametag/blob/main/Banner.png?raw=true)
